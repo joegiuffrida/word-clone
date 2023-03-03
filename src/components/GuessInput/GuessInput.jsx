@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 
-function GuessInput() {
+function GuessInput({ userGuesses, setUserGuesses }) {
   const [guess, setGuess] = useState('');
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log({ guess });
+
+    const nextUserGuess = {
+      value: guess,
+      id: crypto.randomUUID(),
+    };
+
+    setUserGuesses([...userGuesses, nextUserGuess]);
     setGuess('');
   };
 
@@ -18,6 +24,7 @@ function GuessInput() {
         value={guess}
         onChange={(e) => setGuess(e.target.value.toUpperCase())}
         pattern="[a-zA-Z]{5}"
+        required
       />
       Must be 5 letter word
     </form>
