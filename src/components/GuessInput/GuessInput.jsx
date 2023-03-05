@@ -6,12 +6,12 @@ function GuessInput({ userGuesses, setUserGuesses }) {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    const nextUserGuess = {
-      value: guess,
-      id: crypto.randomUUID(),
-    };
+    // const nextUserGuess = {
+    //   value: guess,
+    //   id: crypto.randomUUID(),
+    // };
 
-    setUserGuesses([...userGuesses, nextUserGuess]);
+    setUserGuesses([...userGuesses, guess]);
     setGuess('');
   };
 
